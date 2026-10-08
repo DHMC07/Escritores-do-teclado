@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ⚠️ Cole aqui o UID do utilizador do professor
+    // (Authentication → Utilizadores → coluna «UID do utilizador»)
+    function professor() {
+      return request.auth != null
+        && request.auth.uid in ['COLE_AQUI_O_UID_DO_PROFESSOR'];
+    }
+
+    function dadosValidos(d) {
+      return d.keys().hasOnly(['uid','chave','dia','turma','ano','nome','modo','ini','ult','m',
+                               'feitas','codigo','validado','validadoEm','atualizado'])
+        && d.uid is string
+        && d.nome is string && d.nome.size() > 0 && d.nome.size() <= 40
+        && d.turma is string && d.turma.size() <= 12
+        && d.dia is string && d.dia.size() == 10
+        && d.chave is string && d.chave.size() <= 120
+        && d.codigo is string && d.codigo.size() <= 300
+        && d.m is map && d.feitas is int;
+    }
+
+    match /registos/{id} {
+      // O professor vê tudo; cada computador só vê o que ele próprio gravou
+      allow read: if professor()
+        || (request.auth != null && resource.data.uid == request.auth.uid);
+
+      // Um computador só cria registos em seu nome e nunca já validados
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && id.matches(request.auth.uid + '_.*')
+        && request.resource.data.validado == false
+        && dadosValidos(request.resource.data);
+
+      // O computador atualiza enquanto não houver validação; o professor sempre
+      allow update: if professor()
+        || (request.auth != null
+            && resource.data.uid == request.auth.uid
+            && resource.data.validado == false
+            && request.resource.data.uid == request.auth.uid
+            && request.resource.data.validado == false
+            && dadosValidos(request.resource.data));
+
+      allow delete: if professor();
+    }
+  }
+}

@@ -1,0 +1,193 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body>
+<title>Escritores do Teclado</title>
+<link rel="stylesheet" href="css/estilo.css">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+
+<!-- ═══════════ INÍCIO ═══════════ -->
+<section id="home" class="screen on">
+  <div class="home-head">
+    <div class="brand">📂 Gaveta de Fichas</div>
+    <h1>Escritores do Teclado<span>A rotina do processador de texto, um desafio por dia</span></h1>
+    <div class="home-date" id="homeDate"></div>
+  </div>
+  <div class="home-box">
+    <h2>1. Escolhe o teu ano</h2>
+    <div class="years" id="years"></div>
+    <div class="row">
+      <div class="field">
+        <label for="nameIn">2. Escreve o teu nome</label>
+        <input id="nameIn" autocomplete="off" spellcheck="false" maxlength="40" placeholder="O teu nome">
+      </div>
+      <div class="field" style="flex:0 1 170px;min-width:140px">
+        <label for="turmaIn">Turma</label>
+        <input id="turmaIn" autocomplete="off" spellcheck="false" maxlength="12" placeholder="Ex.: 5.º A">
+      </div>
+      <div>
+        <label style="display:block;font-weight:800;margin-bottom:6px">3. Modo</label>
+        <div class="seg" id="perfilSeg">
+          <button data-p="turma" class="on">👥 Turma</button>
+          <button data-p="apoio">🤝 Apoio</button>
+        </div>
+      </div>
+    </div>
+    <div class="home-msg" id="homeMsg"></div>
+    <div class="home-go"><button class="btn big" id="goBtn">Começar o desafio de hoje</button></div>
+  </div>
+  <footer>
+    <div class="by">📂 Gaveta de Fichas <span class="author">· Autora: CSO</span></div>
+    <div class="links">
+      <a href="https://gavetadefichas.blogspot.com" target="_blank" rel="noopener">✏️ Blog</a>
+      <a href="https://gavetadefichas.wordpress.com" target="_blank" rel="noopener">🌐 Site</a>
+      <a href="https://www.facebook.com/100071380264004/" target="_blank" rel="noopener">📘 Facebook</a>
+    </div>
+  </footer>
+</section>
+
+<!-- ═══════════ MAPA DO DIA ═══════════ -->
+<section id="map" class="screen">
+  <div class="topbar">
+    <div class="who"><img id="mapMascot" alt=""><span id="mapWho"></span></div>
+    <div class="title" id="mapTitle"></div>
+    <div class="nav"><button class="btn ghost" id="mapExit">🏠 Início</button></div>
+  </div>
+  <div class="wrap">
+    <div class="day-head">
+      <img id="dayImg" alt="">
+      <div class="bubble"><div id="daySay"></div><div class="day-themes" id="dayThemes"></div></div>
+    </div>
+    <div class="path" id="path"></div>
+    <div class="day-foot"><span id="dayStars"></span><span id="dayStreak"></span></div>
+    <div id="codeBox" style="margin-top:18px;background:#fff;border:2px dashed var(--accent,#D9312B);border-radius:16px;padding:14px 16px">
+      <div style="font-weight:900;margin-bottom:6px">📨 Código para o professor</div>
+      <p class="note" style="margin:0 0 8px">Quando acabares, envia o código ao professor. Se fizeres mais missões, o código muda: envia o mais recente.</p>
+      <div id="codeTxt" style="font-family:ui-monospace,Consolas,monospace;font-size:13px;word-break:break-all;background:#F7F3EE;border-radius:10px;padding:8px 10px;user-select:all"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <a class="btn" id="codeSend" target="_blank" rel="noopener" style="text-decoration:none">📤 Enviar ao professor</a>
+        <button class="btn ghost" id="codeCopy">📋 Copiar código</button>
+        <span id="codeMsg" style="align-self:center;font-weight:800;color:var(--green)"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ AQUECIMENTO ═══════════ -->
+<section id="warm" class="screen">
+  <div class="topbar">
+    <div class="who"><img class="curMascot" alt=""><span class="curName"></span></div>
+    <div class="title">Aquecimento dos dedos<small>Escreve cada palavra e carrega em Enter</small></div>
+    <div class="nav">
+      <button class="btn ghost navHome">🏠 Início</button>
+      <button class="btn ghost navPrev">◀ Anterior</button>
+      <button class="btn navNext">Próximo ▶</button>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="warm-card">
+      <div style="font-weight:800;color:var(--muted)" id="warmCount"></div>
+      <div class="warm-word" id="warmWord"></div>
+      <input id="warmIn" autocomplete="off" spellcheck="false" autocapitalize="off">
+      <div class="keytip" id="warmTip"></div>
+      <div class="dots" id="warmDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EDITOR ═══════════ -->
+<section id="editor" class="screen">
+  <div class="topbar">
+    <div class="who"><img class="curMascot" alt=""><span class="curName"></span></div>
+    <div class="title" id="edTitle"></div>
+    <div class="stars" id="edStars"></div>
+    <div class="nav">
+      <button class="btn ghost navHome">🏠 Início</button>
+      <button class="btn ghost navPrev">◀ Anterior</button>
+      <button class="btn navNext">Próximo ▶</button>
+    </div>
+  </div>
+  <div class="ed-grid">
+    <!-- missão -->
+    <aside class="panel" id="missionPanel"></aside>
+
+    <!-- janela tipo Word -->
+    <div class="word" id="word">
+      <div class="w-title">
+        <div class="qa"><span>💾</span><span>↶</span><span>↷</span></div>
+        <div class="doc" id="wDocName">Documento1 - Guardado neste computador</div>
+        <div class="win"><span>—</span><span>☐</span><span>✕</span></div>
+      </div>
+      <div class="w-tabs" id="wTabs">
+        <button class="w-tab file" data-tab="Ficheiro">Ficheiro</button>
+        <button class="w-tab on" data-tab="Base">Base</button>
+        <button class="w-tab" data-tab="Inserir">Inserir</button>
+        <button class="w-tab" data-tab="Desenhar">Desenhar</button>
+        <button class="w-tab" data-tab="Esquema">Esquema</button>
+        <button class="w-tab" data-tab="Referências">Referências</button>
+        <button class="w-tab" data-tab="Rever">Rever</button>
+        <button class="w-tab" data-tab="Ver">Ver</button>
+      </div>
+      <div class="w-ribbon" id="ribbon">
+        <div class="w-group">
+          <div class="gb"><button class="w-btn paste" id="wPaste" title="Colar (Ctrl+V)"><span style="font-size:24px">📋</span>Colar</button></div>
+          <div class="gl">Área de Transferência</div>
+        </div>
+        <div class="w-group">
+          <div class="gb">
+            <div class="w-row">
+              <button class="w-combo font" id="cFont" title="Tipo de letra"><span class="v">Aptos</span><span class="ar">▼</span></button>
+              <button class="w-combo size" id="cSize" title="Tamanho do tipo de letra"><span class="v">11</span><span class="ar">▼</span></button>
+            </div>
+            <div class="w-row">
+              <button class="w-btn" id="bBold" title="Negrito"><b>N</b></button>
+              <button class="w-btn" id="bItal" title="Itálico"><i>I</i></button>
+              <button class="w-btn" id="bUnd" title="Sublinhado"><u>S</u></button>
+            </div>
+          </div>
+          <div class="gl">Tipo de Letra</div>
+        </div>
+        <div class="w-group">
+          <div class="gb">
+            <div class="w-row">
+              <button class="w-btn" id="aLeft" title="Alinhar à Esquerda"><svg width="18" height="16" viewBox="0 0 18 16"><path d="M1 2h16M1 6h10M1 10h16M1 14h10" stroke="#252423" stroke-width="1.6"/></svg></button>
+              <button class="w-btn" id="aCenter" title="Centrar"><svg width="18" height="16" viewBox="0 0 18 16"><path d="M1 2h16M4 6h10M1 10h16M4 14h10" stroke="#252423" stroke-width="1.6"/></svg></button>
+              <button class="w-btn" id="aRight" title="Alinhar à Direita"><svg width="18" height="16" viewBox="0 0 18 16"><path d="M1 2h16M7 6h10M1 10h16M7 14h10" stroke="#252423" stroke-width="1.6"/></svg></button>
+              <button class="w-btn" id="aJust" title="Justificar"><svg width="18" height="16" viewBox="0 0 18 16"><path d="M1 2h16M1 6h16M1 10h16M1 14h16" stroke="#252423" stroke-width="1.6"/></svg></button>
+            </div>
+          </div>
+          <div class="gl">Parágrafo</div>
+        </div>
+      </div>
+      <div class="w-canvas" id="canvas"><div id="marks"></div>
+        <div class="w-page" id="page" contenteditable="true" spellcheck="false" lang="pt-PT"></div>
+      </div>
+      <div class="w-status"><span>Página 1 de 1</span><span id="wWords">0 palavras</span><span>Português (Portugal)</span><span class="sp"></span><span>100%</span></div>
+    </div>
+
+    <!-- rotina + ajuda -->
+    <aside class="panel">
+      <div class="checklist">
+        <h3>A rotina do escritor</h3>
+        <div id="checks"></div>
+      </div>
+      <div class="hintbox" id="hintbox"></div>
+      <button class="btn deliver" id="deliverBtn">✅ Terminei! Verificar</button>
+    </aside>
+  </div>
+</section>
+
+<div id="pointer"><div class="hand">👆</div><div class="lbl"></div></div>
+<div class="w-toast" id="toast"></div>
+<div id="bubble"><div class="bb-head">✋ Atenção!</div><div class="bb-msg"></div><div class="bb-more"></div></div>
+<div id="confetti"></div>
+
+<!-- resultado / celebração -->
+<div class="modal" id="resModal"><div class="mbox" id="resBox"></div></div>
+
+<!-- professor -->
+<button class="teacher-btn" id="teacherBtn">🔒 Professor</button>
+<div class="modal" id="tModal"><div class="mbox tp" id="tBox"></div></div>
+
+<script src="js/app.js"></script>
+<script type="module" src="js/registo.js"></script>
+
+</body></html>

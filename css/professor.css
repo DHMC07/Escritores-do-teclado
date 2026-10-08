@@ -1,0 +1,35 @@
+:root{ --cream:#FFF8F0; --ink:#2A2233; --muted:#7A6F80; --line:#E9DFD3; --red:#D9312B; --green:#1E8A4C; --amber:#B7791F; }
+*{ box-sizing:border-box; }
+body{ margin:0; background:var(--cream); color:var(--ink); font-family:Nunito,system-ui,sans-serif; }
+header{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:16px 24px; background:#fff; border-bottom:2px solid var(--line); }
+h1{ font-family:'Fredoka One',Nunito,sans-serif; font-weight:400; font-size:24px; margin:0; }
+h1 span{ font-family:Nunito,sans-serif; font-size:15px; font-weight:800; color:var(--muted); margin-left:8px; }
+h2{ margin:0 0 10px; font-size:18px; }
+main{ max-width:1200px; margin:0 auto; padding:20px; }
+.cartao{ background:#fff; border:2px solid var(--line); border-radius:18px; padding:18px 20px; margin-bottom:18px; }
+.centro{ max-width:420px; margin:60px auto; text-align:center; }
+.linha{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.espaco{ flex:1; }
+input,select{ font:inherit; padding:9px 12px; border:2px solid var(--line); border-radius:12px; background:#fff; }
+#codigo{ flex:1; min-width:240px; font-family:ui-monospace,Consolas,monospace; }
+label{ font-weight:800; display:flex; gap:6px; align-items:center; }
+.btn{ font:inherit; font-weight:900; border:0; border-radius:12px; padding:10px 16px; cursor:pointer; background:var(--red); color:#fff; }
+.btn.ghost{ background:#fff; color:var(--ink); border:2px solid var(--line); }
+.btn.mini{ padding:5px 10px; font-size:13px; }
+.btn.verde{ background:var(--green); }
+.btn:disabled{ opacity:.5; cursor:default; }
+.nota{ color:var(--muted); font-size:14px; }
+.erro{ color:var(--red); font-weight:800; }
+.ok{ color:var(--green); font-weight:800; }
+.vivo{ color:var(--green); font-weight:900; font-size:13px; }
+.vivo.off{ color:var(--red); }
+.tabela{ overflow-x:auto; }
+table{ border-collapse:collapse; width:100%; font-size:14px; }
+th{ background:#F2ECE4; text-align:left; padding:8px; white-space:nowrap; }
+td{ border-top:1px solid var(--line); padding:7px 8px; white-space:nowrap; }
+td.c,th.c{ text-align:center; }
+tr.validado td{ background:#F1FAF4; }
+.acoes{ margin-top:14px; }
+#conta{ display:flex; gap:10px; align-items:center; font-weight:700; color:var(--muted); }
+.form-entrar{ display:flex; flex-direction:column; gap:10px; margin-top:12px; }

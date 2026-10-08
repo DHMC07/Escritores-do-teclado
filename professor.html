@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel do professor · Escritores do Teclado</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/professor.css">
+</head>
+<body>
+<header>
+  <h1>⌨️ Escritores do Teclado <span>Painel do professor</span></h1>
+  <div id="conta"></div>
+</header>
+
+<main>
+  <!-- Entrada -->
+  <section id="entrar" class="cartao centro">
+    <h2>Entrar</h2>
+    <form id="formEntrar" class="form-entrar">
+      <input id="utilizador" placeholder="Utilizador" autocomplete="username" required>
+      <input id="senha" type="password" placeholder="Palavra-passe" autocomplete="current-password" required>
+      <button id="btnEntrar" class="btn" type="submit">Entrar</button>
+    </form>
+    <p id="msgEntrar" class="erro"></p>
+  </section>
+
+  <!-- Painel -->
+  <section id="painel" hidden>
+    <div class="cartao">
+      <h2>Validar por código</h2>
+      <div class="linha">
+        <input id="codigo" placeholder="Cole o código do aluno (começa por ET) e carregue em Enter">
+        <button id="btnCodigo" class="btn">Validar</button>
+      </div>
+      <p id="msgCodigo"></p>
+    </div>
+
+    <div class="cartao">
+      <div class="linha filtros">
+        <label>Dia <input type="date" id="fDia"></label>
+        <button id="fTodosDias" class="btn ghost">Todos os dias</button>
+        <label>Turma <select id="fTurma"><option value="">Todas</option></select></label>
+        <label>Estado
+          <select id="fEstado">
+            <option value="pendentes">Por validar</option>
+            <option value="validados">Validados</option>
+            <option value="">Todos</option>
+          </select>
+        </label>
+        <span class="espaco"></span>
+        <span id="aoVivo" class="vivo">● ao vivo</span>
+      </div>
+      <p id="resumo" class="nota"></p>
+      <div class="tabela"><table id="tabela"></table></div>
+      <div class="linha acoes">
+        <button id="btnValidarTodos" class="btn">✔ Validar todos os visíveis</button>
+        <button id="btnCsv" class="btn ghost">⬇ Exportar para Excel (CSV)</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="js/professor.js"></script>
+</body>
+</html>
