@@ -2,7 +2,7 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // ⚠️ Cole aqui o UID do utilizador do professor
+    // ["oVKlwxmMz9aAGldsVz9QSL59cSs1"]
     // (Authentication → Utilizadores → coluna «UID do utilizador»)
     function professor() {
       return request.auth != null

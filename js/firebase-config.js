@@ -4,12 +4,12 @@
 // 2. Copie os valores de «firebaseConfig» para aqui.
 // ═══════════════════════════════════════════════════════════
 export const firebaseConfig = {
-  apiKey: "COLE_AQUI",
-  authDomain: "COLE_AQUI.firebaseapp.com",
-  projectId: "COLE_AQUI",
-  storageBucket: "COLE_AQUI.appspot.com",
-  messagingSenderId: "COLE_AQUI",
-  appId: "COLE_AQUI"
+  apiKey: "AIzaSyC9_jcq0o_4mzeNg1kZZC0UX18wCBb5Yro",
+  authDomain: "escritores-do-teclado.firebaseapp.com",
+  projectId: "escritores-do-teclado",
+  storageBucket: "escritores-do-teclado.firebasestorage.app",
+  messagingSenderId: "457337138563",
+  appId: "1:457337138563:web:a203cb4bf1b8d6f7eedab6"
 };
 
 // Credencial do professor: utilizador criado à mão na consola do Firebase
