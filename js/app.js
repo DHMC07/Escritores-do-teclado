@@ -1394,9 +1394,12 @@ function confetti(){
 // ═══════════════════════════════════════════════════════════
 // PAINEL DO PROFESSOR
 // ═══════════════════════════════════════════════════════════
-$('teacherBtn').onclick=()=>{
+// O botão «🔒 Professor» abre a página de gestão (professor.html) num separador novo
+$('teacherBtn').onclick=()=>{ window.open('professor.html','_blank','noopener'); };
+// Definições locais antigas (ajudas, letra, data…): já não estão ligadas ao botão
+function abrirDefinicoesLocais(){
   $('tBox').innerHTML=`<h2>Painel do professor</h2><label for="tPw">Palavra-passe</label>
-    <input type="password" id="tPw" style="width:100%"><div class="home-msg" id="tMsg"></div><p class="note" style="text-align:right;margin:0">versão 7</p>
+    <input type="password" id="tPw" style="width:100%"><div class="home-msg" id="tMsg"></div><p class="note" style="text-align:right;margin:0">versão 8</p>
     <div class="mbtns"><button class="btn ghost" id="tCancel">Fechar</button><button class="btn" id="tEnter">Entrar</button></div>`;
   $('tModal').classList.add('on'); $('tPw').focus();
   $('tCancel').onclick=()=>$('tModal').classList.remove('on');
